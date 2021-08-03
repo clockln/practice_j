@@ -2,7 +2,7 @@ function retData(){
   return data;
 }
 
-let data = [
+const data = [
   ['AAA',120,2000],
   ['AQW',852,1010],
   ['PAHH',14,97541],
