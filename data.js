@@ -1,3 +1,7 @@
+function retData(){
+  return data;
+}
+
 let data = [
   ['AAA',120,2000],
   ['AQW',852,1010],
