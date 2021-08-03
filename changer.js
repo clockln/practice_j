@@ -17,6 +17,7 @@ function tables(){
   const startTime = performance.now()
   aftertable = '<tr><th>' + 'NAME' + '</th><th>' + 'BPM' + '</th><th>' + 'NOTES' + '</th></tr>'
   data.forEach(function (element){
+                 if(element[2] > 4000) continue;
                  aftertable += '<tr><td>' + element[0] + '</td><td>' + element[1] + '</td><td>' + element[2] + '</td></tr>'
                });
   table.innerHTML = aftertable
