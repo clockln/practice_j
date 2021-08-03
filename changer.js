@@ -1016,9 +1016,12 @@ let data = [
 ]
 
 function tables(){
+  const startTime = performance.now()
   aftertable = '<tr><th>NAME</th><th>BPM</th><th>NOTES</th></tr>'
   data.forEach(function (element){
                  aftertable += '<tr><td>' + element[0] + '</td><td>' + element[1] + '</td><td>' + element[2] + '</td></tr>'
                });
   table.innerHTML = aftertable
+  const endTime = performance.now()
+  console.log(endTime - startTime)
 }
