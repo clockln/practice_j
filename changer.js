@@ -5,10 +5,16 @@ const buttontest1 = document.getElementById('buttontest1')
 const buttontest2 = document.getElementById('buttontest2')
 
 buttontest1.onclick = ButtonGClick;
-buttontest2.onclick = tables;
+buttontest2.onclick = Button2Click;
 
 function ButtonGClick(){
   test1.innerHTML = '<a href="https://www.google.com/">google</a>'
+}
+
+function Button2Click(){
+  boolb = false;
+  booln = false;
+  tables();
 }
 
 //buttonlimit
