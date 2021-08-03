@@ -12,6 +12,19 @@ function ButtonGClick(){
 
 const table = document.getElementById('table1')
 let aftertable = ''
+const musicData = retData;
+
+function tables(){
+  const startTime = performance.now()
+  aftertable = '<tr><th>NAME</th><th>BPM</th><th>NOTES</th></tr>'
+  musicData.forEach(function (element){
+                 aftertable += '<tr><td>' + element[0] + '</td><td>' + element[1] + '</td><td>' + element[2] + '</td></tr>'
+               });
+  table.innerHTML = aftertable
+  const endTime = performance.now()
+  console.log(endTime - startTime)
+}
+/*
 let data = [
   ['AAA',120,2000],
   ['AQW',852,1010],
@@ -1014,14 +1027,4 @@ let data = [
   ['PAHH',14,97541],
   ['AAA',120,2000]
 ]
-
-function tables(){
-  const startTime = performance.now()
-  aftertable = '<tr><th>NAME</th><th>BPM</th><th>NOTES</th></tr>'
-  data.forEach(function (element){
-                 aftertable += '<tr><td>' + element[0] + '</td><td>' + element[1] + '</td><td>' + element[2] + '</td></tr>'
-               });
-  table.innerHTML = aftertable
-  const endTime = performance.now()
-  console.log(endTime - startTime)
-}
+*/
