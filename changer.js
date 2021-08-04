@@ -9,6 +9,16 @@ function MainButtonClick(){
   tables();
 }
 
+//sortbutton13----------------------------------------------------------------------------------------------------------------------------
+const sortButton = document.getElementById('sortbpm')
+
+sortButton.onclick = SortButtonClick;
+
+function SortButtonClick(){
+  data.sort(function(a,b){return a[13]-b[13]})
+  table();
+}
+
 //limitbutton---------------------------------------------------------------------------------------------------------------------------
 let MinBpm = 0
 let MaxBpm = 10000
