@@ -1,29 +1,17 @@
 const test1 = document.getElementById('test1')
 
 //buttontest---------------------------------------------------------------------------------------------------------------------------
-const buttontest2 = document.getElementById('buttontest2')
+const MainButton = document.getElementById('mainbutton')
 
-buttontest2.onclick = Button2Click;
+MainButton.onclick = MainButtonClick;
 
-function Button2Click(){
-  booln = false;
+function MainButtonClick(){
   tables();
 }
 
-//buttonlimit---------------------------------------------------------------------------------------------------------------------------
-const buttonn = document.getElementById('n1500')
-
-let booln = false;
-
-buttonn.onclick = buttonnClick;
-
-function buttonnClick(){
-  booln = true;
-  tables();
-}
-
+//limitbutton---------------------------------------------------------------------------------------------------------------------------
 let MinBpm = 0
-let MaxBpm = 1000000
+let MaxBpm = 10000
 
 function bpmChecker(){
   let tempminbpm = document.getElementById('minbpm').value
@@ -36,7 +24,7 @@ function bpmChecker(){
   }
   
   if(tempmaxbpm == null || tempmaxbpm == ''){
-    MaxBpm = 1000000
+    MaxBpm = 10000
   }else{
     MaxBpm = tempmaxbpm
   }
@@ -49,18 +37,13 @@ let aftertable = ''
 function tables(){
   const startTime = performance.now()
   
-  //>checker boot---------------------------------------------------------------------------------------------------------------------
+//--checker boot---------------------------------------------------------------------------------------------------------------------
   bpmChecker()
   
-  aftertable = '<tr><th>' + 'NAME' + '</th><th>' + 'ID' + '</th><th>' + 'Ver' + '</th><th>' + 'Diff' + '</th><th>' + 'LV' + '</th><th>' + 'Notes' + '</th><th>' + 'inCHIP' + '</th><th>' + 'inLONG' + '</th><th>' + 'inVOL' + '</th><th>' + 'MAXEX' + '</th><th>' + 'LV_V' + '</th><th>' + 'Notes_V' + '</th><th>' + 'Notes差' + '</th><th>' + 'BPM' + '</th><th>' + 'Artist' + '</th><th>' + 'Effector' + '</th><th>' + 'Vertical_L' + '</th><th>' + 'Vertical_R' + '</th><th>' + 'Vertical' + '</th><th>' + 'Time' + '</th><th>' + 'LV_IV' + '</th><th>' + 'Notes_IV' + '</th><th>' + 'Notes差_IV→V' + '</th><th>' + 'LV_III' + '</th></tr>'
-  data.forEach(function (element){
-    
-    if(element[1] < MinBpm || MaxBpm < element[1]) return true;
-    
-    if(booln){
-      if(element[2] < 1500) return true;
-    }
-    aftertable += '<tr><td>' + element[0] + '</td><td>' + element[1] + '</td><td>' + element[2] + '</td><td>' + element[3] + '</td><td>' + element[4] + '</td><td>' + element[5] + '</td><td>' + element[6] + '</td><td>' + element[7] + '</td><td>' + element[8] + '</td><td>' + element[9] + '</td><td>' + element[10] + '</td><td>' + element[11] + '</td><td>' + element[12] + '</td><td>' + element[13] + '</td><td>' + element[14] + '</td><td>' + element[15] + '</td><td>' + element[16] + '</td><td>' + element[17] + '</td><td>' + element[18] + '</td><td>' + element[19] + '</td><td>' + element[20] + '</td><td>' + element[21] + '</td><td>' + element[22] + '</td><td>' + element[23] + '</td></tr>'
+  aftertable = '<tr><th>' + 'NAME' + '</th><th>' + 'ID' + '</th><th>' + 'Ver' + '</th><th>' + 'Dif' + '</th><th>' + 'LV' + '</th><th>' + 'Notes' + '</th><th>' + 'inCHIP' + '</th><th>' + 'inLONG' + '</th><th>' + 'inVOL' + '</th><th>' + 'MAXEX' + '</th><th>' + 'LV_V' + '</th><th>' + 'Notes_V' + '</th><th>' + 'Notes差' + '</th><th>' + 'BPM' + '</th><th>' + 'Artist' + '</th><th>' + 'Effector' + '</th><th>' + 'Vertical_L' + '</th><th>' + 'Vertical_R' + '</th><th>' + 'Vertical' + '</th><th>' + 'Time' + '</th><th>' + 'LV_IV' + '</th><th>' + 'Notes_IV' + '</th><th>' + 'Notes差_IV→V' + '</th><th>' + 'LV_III' + '</th></tr>'
+  data.forEach(function (dt){
+    if(dt[1] < MinBpm || MaxBpm < dt[1]) return true;
+    aftertable += '<tr><td>' + dt[0] + '</td><td>' + dt[1] + '</td><td>' + dt[2] + '</td><td>' + dt[3] + '</td><td>' + dt[4] + '</td><td>' + dt[5] + '</td><td>' + dt[6] + '</td><td>' + dt[7] + '</td><td>' + dt[8] + '</td><td>' + dt[9] + '</td><td>' + dt[10] + '</td><td>' + dt[11] + '</td><td>' + dt[12] + '</td><td>' + dt[13] + '</td><td>' + dt[14] + '</td><td>' + dt[15] + '</td><td>' + dt[16] + '</td><td>' + dt[17] + '</td><td>' + dt[18] + '</td><td>' + dt[19] + '</td><td>' + dt[20] + '</td><td>' + dt[21] + '</td><td>' + dt[22] + '</td><td>' + dt[23] + '</td></tr>'
   });
   
   table.innerHTML = aftertable
