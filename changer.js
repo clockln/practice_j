@@ -3,7 +3,7 @@ const test1 = document.getElementById('test1')
 //buttontest---------------------------------------------------------------------------------------------------------------------------
 const MainButton = document.getElementById('mainbutton')
 
-MainButton.onclick = MainButtonClick();
+MainButton.onclick = MainButtonClick;
 
 function MainButtonClick(){
   tables();
