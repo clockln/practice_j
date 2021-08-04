@@ -1,6 +1,6 @@
 const test1 = document.getElementById('test1')
 
-//buttontest
+//buttontest---------------------------------------------------------------------------------------------------------------------------
 const buttontest1 = document.getElementById('buttontest1')
 const buttontest2 = document.getElementById('buttontest2')
 
@@ -17,36 +17,60 @@ function Button2Click(){
   tables();
 }
 
-//buttonlimit
-const buttonb = document.getElementById('b200400')
+//buttonlimit---------------------------------------------------------------------------------------------------------------------------
+//const buttonb = document.getElementById('b200400')
 const buttonn = document.getElementById('n1500')
 
-let boolb = false;
+//let boolb = false;
 let booln = false;
 
-buttonb.onclick = buttonbClick;
+//buttonb.onclick = buttonbClick;
 buttonn.onclick = buttonnClick;
-
+/*
 function buttonbClick(){
   boolb = true;
   tables();
 }
-
+*/
 function buttonnClick(){
   booln = true;
   tables();
 }
 
-//tables
+let MinBpm = 0
+let MaxBpm = 1000000
+
+function bpmChecker(){
+  let tempminbpm = document.minbpm.value
+  let tempmaxbpm = document.maxbpm.value
+  
+  if(tempminbpm == null){
+    MinBpm = 0
+  }else{
+    MinBpm = tempminbpm
+  }
+  
+  if(tempmaxbpm == null){
+    MaxBpm = 1000000
+  }else{
+    MaxBpm = tempmaxbpm
+  }
+}
+
+//tables---------------------------------------------------------------------------------------------------------------------------
 const table = document.getElementById('table1')
 let aftertable = ''
 
 function tables(){
   const startTime = performance.now()
+  
+  //>checker boot---------------------------------------------------------------------------------------------------------------------
+  bpmChecker()
+  
   aftertable = '<tr><th>' + 'NAME' + '</th><th>' + 'BPM' + '</th><th>' + 'NOTES' + '</th></tr>'
   data.forEach(function (element){
                  if(boolb){
-                   if(element[1] < 200 || 400 < element[1]) return true;
+                   if(element[1] < MinBpm || MaxBpm < element[1]) return true;
                  }
                  if(booln){
                    if(element[2] < 1500) return true;
@@ -58,6 +82,7 @@ function tables(){
   console.log(endTime - startTime)
 }
 
+//data---------------------------------------------------------------------------------------------------------------------------
 const data = [
   ['a',576,1662],
   ['vbh',385,2243],
