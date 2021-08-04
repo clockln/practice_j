@@ -44,13 +44,13 @@ function bpmChecker(){
   let tempminbpm = document.getElementById('minbpm').value
   let tempmaxbpm = document.getElementById('maxbpm').value
   
-  if(tempminbpm == null){
+  if(tempminbpm == null || tempminbpm == ''){
     MinBpm = 0
   }else{
     MinBpm = tempminbpm
   }
   
-  if(tempmaxbpm == null){
+  if(tempmaxbpm == null || tempmaxbpm == ''){
     MaxBpm = 1000000
   }else{
     MaxBpm = tempmaxbpm
