@@ -11,6 +11,8 @@
   <p>bpm<input type="text" id="minbpm" size="8" maxlength="5"> ～ <input type="text" id="maxbpm" size="8" maxlength="5"></p>
   <button id="mainbutton">BUTTON</button>
   
+  <input type="checkbox" id="inchip_check" onclick="checkbox_cell(this,'inchip_display')" checked="checked">inchip
+  
   <div>
   <table border="1" id="table1">
     <tr>
@@ -20,7 +22,7 @@
     <th>Diff</th>
     <th>LV</th>
     <th>Notes</th>
-    <th>inCHIP</th>
+    <th id="inchip">inCHIP</th>
     <th>inLONG</th>
     <th>inVOL</th>
     <th>MAXEX</th>
