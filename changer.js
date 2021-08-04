@@ -12,7 +12,7 @@ function ButtonGClick(){
 }
 
 function Button2Click(){
-  boolb = false;
+//  boolb = false;
   booln = false;
   tables();
 }
@@ -69,9 +69,9 @@ function tables(){
   
   aftertable = '<tr><th>' + 'NAME' + '</th><th>' + 'BPM' + '</th><th>' + 'NOTES' + '</th></tr>'
   data.forEach(function (element){
-                 if(boolb){
-                   if(element[1] < MinBpm || MaxBpm < element[1]) return true;
-                 }
+                 
+                 if(element[1] < MinBpm || MaxBpm < element[1]) return true;
+                 
                  if(booln){
                    if(element[2] < 1500) return true;
                  }
