@@ -1,37 +1,22 @@
 const test1 = document.getElementById('test1')
 
 //buttontest---------------------------------------------------------------------------------------------------------------------------
-const buttontest1 = document.getElementById('buttontest1')
 const buttontest2 = document.getElementById('buttontest2')
 
-buttontest1.onclick = ButtonGClick;
 buttontest2.onclick = Button2Click;
 
-function ButtonGClick(){
-  test1.innerHTML = '<a href="https://www.google.com/">google</a>'
-}
-
 function Button2Click(){
-//  boolb = false;
   booln = false;
   tables();
 }
 
 //buttonlimit---------------------------------------------------------------------------------------------------------------------------
-//const buttonb = document.getElementById('b200400')
 const buttonn = document.getElementById('n1500')
 
-//let boolb = false;
 let booln = false;
 
-//buttonb.onclick = buttonbClick;
 buttonn.onclick = buttonnClick;
-/*
-function buttonbClick(){
-  boolb = true;
-  tables();
-}
-*/
+
 function buttonnClick(){
   booln = true;
   tables();
@@ -69,14 +54,15 @@ function tables(){
   
   aftertable = '<tr><th>' + 'NAME' + '</th><th>' + 'BPM' + '</th><th>' + 'NOTES' + '</th></tr>'
   data.forEach(function (element){
-                 
-                 if(element[1] < MinBpm || MaxBpm < element[1]) return true;
-                 
-                 if(booln){
-                   if(element[2] < 1500) return true;
-                 }
-                 aftertable += '<tr><td>' + element[0] + '</td><td>' + element[1] + '</td><td>' + element[2] + '</td></tr>'
-               });
+    
+    if(element[1] < MinBpm || MaxBpm < element[1]) return true;
+    
+    if(booln){
+      if(element[2] < 1500) return true;
+    }
+    aftertable += '<tr><td>' + element[0] + '</td><td>' + element[1] + '</td><td>' + element[2] + '</td></tr>'
+  });
+  
   table.innerHTML = aftertable
   const endTime = performance.now()
   console.log(endTime - startTime)
