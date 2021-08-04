@@ -41,8 +41,8 @@ let MinBpm = 0
 let MaxBpm = 1000000
 
 function bpmChecker(){
-  let tempminbpm = document.minbpm.value
-  let tempmaxbpm = document.maxbpm.value
+  let tempminbpm = document.getElementById('minbpm').value
+  let tempmaxbpm = document.getElementById('maxbpm').value
   
   if(tempminbpm == null){
     MinBpm = 0
