@@ -16,7 +16,7 @@ sortButton.onclick = SortButtonClick;
 
 function SortButtonClick(){
   data.sort(function(a,b){return a[13]-b[13]})
-  table();
+  tables();
 }
 
 //limitbutton---------------------------------------------------------------------------------------------------------------------------
