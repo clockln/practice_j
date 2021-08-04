@@ -71,8 +71,6 @@ function tables(){
   data.forEach(function (element){
                  
                  if(element[1] < MinBpm || MaxBpm < element[1]) return true;
-                   console.log(MinBpm)
-                   console.log(MaxBpm)
                  
                  if(booln){
                    if(element[2] < 1500) return true;
