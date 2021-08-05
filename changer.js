@@ -15,7 +15,7 @@ const sortButton = document.getElementById('sortbpm')
 sortButton.onclick = SortButtonClick;
 
 function SortButtonClick(){
-  data.sort(function(a,b){return a[13]-b[13]})
+  data.sort(function(a,b){return a[5]-b[5]})
   tables();
 }
 
