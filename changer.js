@@ -54,22 +54,129 @@ function bpmChecker(){
 const table = document.getElementById('table1')
 let aftertable = ''
 
+const table_th = ['NAME',
+                  'ID',
+                  'Ver',
+                  'Dif',
+                  'LV',
+                  'Notes',
+                  'inCHIP',
+                  'inLONG',
+                  'inVOL',
+                  'MAXEX',
+                  'LV_V',
+                  'Notes_V',
+                  '増減VI',
+                  'BPM',
+                  'Artist',
+                  'Effector',
+                  'Vertical_L',
+                  'Vertical_R',
+                  'Vertical',
+                  'Time',
+                  'LV_IV',
+                  'Notes_IV',
+                  '増減V',
+                  'LV_III'
+                  ]
+
+const table_th_class = ['NAME',
+                    'ID',
+                    'Ver',
+                    'Dif',
+                    'LV',
+                    'Notes',
+                    'inCHIP',
+                    'inLONG',
+                    'inVOL',
+                    'MAXEX',
+                    'LV_V',
+                    'Notes_V',
+                    'Notes_toVI',
+                    'BPM',
+                    'Artist',
+                    'Effector',
+                    'Vertical_L',
+                    'Vertical_R',
+                    'Vertical',
+                    'Time',
+                    'LV_IV',
+                    'Notes_IV',
+                    'Notes_toV',
+                    'LV_III'
+                    ]
+
+
+
+const table_no = [1,
+                  0,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23
+                   ]
+
+const table_leng = table_th.length
+
 function tables(){
   const startTime = performance.now()
   
 //--checker boot---------------------------------------------------------------------------------------------------------------------
   bpmChecker()
   
-  aftertable = '<tr><th>' + 'ID' + '</th><th>' + 'NAME' + '</th><th>' + 'Ver' + '</th><th>' + 'Dif' + '</th><th>' + 'LV' + '</th><th>' + 'Notes' + '</th><th id="inchip">' + 'inCHIP' + '</th><th>' + 'inLONG' + '</th><th>' + 'inVOL' + '</th><th>' + 'MAXEX' + '</th><th>' + 'LV_V' + '</th><th>' + 'Notes_V' + '</th><th>' + 'Notes差' + '</th><th>' + 'BPM' + '</th><th>' + 'Artist' + '</th><th>' + 'Effector' + '</th><th>' + 'Vertical_L' + '</th><th>' + 'Vertical_R' + '</th><th>' + 'Vertical' + '</th><th>' + 'Time' + '</th><th>' + 'LV_IV' + '</th><th>' + 'Notes_IV' + '</th><th>' + 'Notes差' + '</th><th>' + 'LV_III' + '</th></tr>'
+  aftertable = '<tr>'
+  for(let i=0;i<table_leng;i++){
+    aftertable += '<th' + ' class=\"' + table_th_class[table_no[i]] + '\">' + table_th[table_no[i]] + '</th>'
+  }
+  aftertable += '</tr>'
+
   data.forEach(function (dt){
     if(dt[13] < MinBpm || MaxBpm < dt[13]) return true;
-    aftertable += '<tr><td>' + dt[1] + '</td><td>' + dt[0] + '</td><td>' + dt[2] + '</td><td>' + dt[3] + '</td><td>' + dt[4] + '</td><td>' + dt[5] + '</td><td>' + dt[6] + '</td><td>' + dt[7] + '</td><td>' + dt[8] + '</td><td>' + dt[9] + '</td><td>' + dt[10] + '</td><td>' + dt[11] + '</td><td>' + dt[12] + '</td><td>' + dt[13] + '</td><td>' + dt[14] + '</td><td>' + dt[15] + '</td><td>' + dt[16] + '</td><td>' + dt[17] + '</td><td>' + dt[18] + '</td><td>' + dt[19] + '</td><td>' + dt[20] + '</td><td>' + dt[21] + '</td><td>' + dt[22] + '</td><td>' + dt[23] + '</td></tr>'
+    aftertable += '<tr>'
+    for(let i=0;i<table_leng;i++){
+      aftertable += '<td' + ' class=\"' + table_th_class[table_no[i]] + '\">' + dt[table_no[i]] + '</td>'
+    }
   });
   
   table.innerHTML = aftertable
   const endTime = performance.now()
   console.log(endTime - startTime)
 }
+
+//checkbox-----------------------------------------------------------------------------------------------------------------------
+/*
+let idCheck = document.getElementById('id_display')
+
+idCheck.addEventListener('change',id_display_change)
+
+
+function id_display_change(){
+  const idcheck_id = document.getElementsByClassName('ID')
+  if(idCheck.checked){
+    idcheck_id.style.display = 'none';
+  }else{
+    idcheck_id.style.display = 'block';
+  }
+}
+*/
 
 //data---------------------------------------------------------------------------------------------------------------------------
 const data = [
