@@ -9,13 +9,23 @@ function MainButtonClick(){
   tables();
 }
 
-//sortbutton13----------------------------------------------------------------------------------------------------------------------------
+//sortbutton5----------------------------------------------------------------------------------------------------------------------------
 const sortButton = document.getElementById('sortbpm')
 
 sortButton.onclick = SortButtonClick;
 
 function SortButtonClick(){
   data.sort(function(a,b){return a[5]-b[5]})
+  tables();
+}
+
+//sortbutton19----------------------------------------------------------------------------------------------------------------------------
+const sortButton2 = document.getElementById('sorttime')
+
+sortButton2.onclick = SortButtonClick2;
+
+function SortButtonClick2(){
+  data.sort(function(a,b){return a[19]-b[19]})
   tables();
 }
 
