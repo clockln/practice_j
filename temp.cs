@@ -16,7 +16,17 @@ public class Prob{
             
             Write($"\"{s[0]}\"");
             Write(",");
-            Write($"17{s[1]}");
+            Write($"17");
+            if(s[1].Length == 1){
+                Write("000");
+            }
+            if(s[1].Length == 2){
+                Write("00");
+            }
+            if(s[1].Length == 3){
+                Write("0");
+            }
+            Write($"{s[1]}");
             Write(",");
             Write($"\"{s[2]}\"");
             Write(",");
@@ -40,7 +50,7 @@ public class Prob{
             Write(",");
             Write($"{s[11]}");
             Write(",");
-            Write($"{s[12]}");
+            Write($"\"{s[12]}\"");
             Write(",");
             Write($"\"{s[13]}\"");
             Write(",");
@@ -65,9 +75,30 @@ public class Prob{
             Write($"{s[23]}");
             Write(",");
             Write($"\"{s[24]}\"");
-            //Write(",");
+            Write(",");
             //Write($"{s[25]}");
             //Write(",");
+            if(s[2] == "Ⅰ") Write("1");
+            if(s[2] == "Ⅱ") Write("2");
+            if(s[2] == "Ⅲ") Write("3");
+            if(s[2] == "Ⅳ") Write("4");
+            if(s[2] == "Ⅴ") Write("5");
+            if(s[2] == "Ⅵ") Write("6");
+            if(s[2] == "Ⅶ") Write("7");
+            if(s[2] == "Ⅷ") Write("8");
+            if(s[2] == "Ⅸ") Write("9");
+            if(s[2] == "Ⅹ") Write("10");
+            Write(",");
+            if(s[12].IndexOf("-") >= 0){
+                Write("!!!!!!!!!!!!!!!!!!!");
+            }else{
+                Write(s[12]);
+            }
+            Write(",");
+            var tempt = s[18].Split(':');
+            tempt[0] = tempt[0].Replace("0","");
+            var time = int.Parse(tempt[0])*60 + int.Parse(tempt[1]);
+            Write(time);
             
             WriteLine("],");
         }
