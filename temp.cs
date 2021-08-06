@@ -10,7 +10,7 @@ public class Prob{
     static public int mod = 1000000007;
     static public string al = "abcdefghijklmnopqrstuvwxyz";
     public static void Main(){
-        for(int i=0;i<100;i++){
+        while(true){
             var s = ReadLine().Split('\t');
             Write("  [");
             
@@ -95,10 +95,14 @@ public class Prob{
                 Write(s[12]);
             }
             Write(",");
-            var tempt = s[18].Split(':');
-            tempt[0] = tempt[0].Replace("0","");
-            var time = int.Parse(tempt[0])*60 + int.Parse(tempt[1]);
-            Write(time);
+            if(s[18] == ""){
+                Write("\"0\"");
+            }else{
+                var tempt = s[18].Split(':');
+                tempt[0] = tempt[0].Replace("0","");
+                var time = int.Parse(tempt[0])*60 + int.Parse(tempt[1]);
+                Write(time);
+            }
             
             WriteLine("],");
         }
