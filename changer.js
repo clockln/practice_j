@@ -6,14 +6,35 @@ const MainButton = document.getElementById('mainbutton')
 MainButton.onclick = MainButtonClick;
 
 function MainButtonClick(){
-  tables();
+  SortButton_classresetter();
+  SortButton_id_Click();
 }
 
 //sortbutton_classreset-----------------------------------------------------------------------------------------------------------------
 function SortButton_classresetter(){
+  sortButton_id.className = 'asc'
   sortButton_chain.className = 'desc'
   sortButton_bpm.className = 'desc'
   sortButton_time.className = 'desc'
+}
+
+//sortbuttonID----------------------------------------------------------------------------------------------------------------------------
+const sortButton_id = document.getElementById('sortID')
+
+sortButton_id.onclick = SortButton_id_Click
+
+function SortButton_id_Click(){
+  if(sortButton_id.className == 'asc'){
+    data.sort(function(a,b){return a[1]-b[1]})
+    SortButton_classresetter()
+    sortButton_id.className = 'desc'
+  }
+  else if(sortButton_id.className == 'desc'){
+    data.sort(function(a,b){return b[1]-a[1]})
+    SortButton_classresetter()
+    sortButton_id.className = 'asc'
+  }
+  tables();
 }
 
 //sortbutton5----------------------------------------------------------------------------------------------------------------------------
