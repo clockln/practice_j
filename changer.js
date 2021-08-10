@@ -1,121 +1,5 @@
-const test1 = document.getElementById('test1')
-
-//buttontest---------------------------------------------------------------------------------------------------------------------------
-const MainButton = document.getElementById('mainbutton')
-
-MainButton.onclick = MainButtonClick;
-
-function MainButtonClick(){
-  SortButton_classresetter();
-  SortButton_id_Click();
-}
-
-//sortbutton_classreset-----------------------------------------------------------------------------------------------------------------
-function SortButton_classresetter(){
-  sortButton_id.className = 'asc'
-  sortButton_chain.className = 'desc'
-  sortButton_bpm.className = 'desc'
-  sortButton_time.className = 'desc'
-}
-
-//sortbuttonID----------------------------------------------------------------------------------------------------------------------------
-const sortButton_id = document.getElementById('sortID')
-
-sortButton_id.onclick = SortButton_id_Click
-
-function SortButton_id_Click(){
-  if(sortButton_id.className == 'asc'){
-    data.sort(function(a,b){return a[1]-b[1]})
-    SortButton_classresetter()
-    sortButton_id.className = 'desc'
-  }
-  else if(sortButton_id.className == 'desc'){
-    data.sort(function(a,b){return b[1]-a[1]})
-    SortButton_classresetter()
-    sortButton_id.className = 'asc'
-  }
-  tables();
-}
-
-//sortbutton5----------------------------------------------------------------------------------------------------------------------------
-const sortButton_chain = document.getElementById('sortCHAIN')
-
-sortButton_chain.onclick = SortButton_chain_Click
-
-function SortButton_chain_Click(){
-  if(sortButton_chain.className == 'asc'){
-    data.sort(function(a,b){return a[5]-b[5]})
-    SortButton_classresetter()
-    sortButton_chain.className = 'desc'
-  }
-  else if(sortButton_chain.className == 'desc'){
-    data.sort(function(a,b){return b[5]-a[5]})
-    SortButton_classresetter()
-    sortButton_chain.className = 'asc'
-  }
-  tables();
-}
-
-//sortbutton_bpm----------------------------------------------------------------------------------------------------------------------------
-const sortButton_bpm = document.getElementById('sortBPM')
-
-sortButton_bpm.onclick = SortButton_bpm_Click
-
-function SortButton_bpm_Click(){
-  if(sortButton_bpm.className == 'asc'){
-    data.sort(function(a,b){return a[25]-b[25]})
-    SortButton_classresetter()
-    sortButton_bpm.className = 'desc'
-  }
-  else if(sortButton_bpm.className == 'desc'){
-    data.sort(function(a,b){return b[25]-a[25]})
-    SortButton_classresetter()
-    sortButton_bpm.className = 'asc'
-  }
-  tables();
-}
-
-//sortbutton_time----------------------------------------------------------------------------------------------------------------------------
-const sortButton_time = document.getElementById('sortTIME')
-
-sortButton_time.onclick = SortButton_time_Click
-
-function SortButton_time_Click(){
-  if(sortButton_time.className == 'asc'){
-    data.sort(function(a,b){return a[26]-b[26]})
-    SortButton_classresetter()
-    sortButton_time.className = 'desc'
-  }
-  else if(sortButton_time.className == 'desc'){
-    data.sort(function(a,b){return b[26]-a[26]})
-    SortButton_classresetter()
-    sortButton_time.className = 'asc'
-  }
-  tables();
-}
-//limitbutton---------------------------------------------------------------------------------------------------------------------------
-let MinBpm = 0
-let MaxBpm = 10000
-
-function bpmChecker(){
-  let tempminbpm = document.getElementById('minbpm').value
-  let tempmaxbpm = document.getElementById('maxbpm').value
-  
-  if(tempminbpm == null || tempminbpm == ''){
-    MinBpm = 0
-  }else{
-    MinBpm = tempminbpm
-  }
-  
-  if(tempmaxbpm == null || tempmaxbpm == ''){
-    MaxBpm = 10000
-  }else{
-    MaxBpm = tempmaxbpm
-  }
-}
-
 //tables---------------------------------------------------------------------------------------------------------------------------
-const table = document.getElementById('table1')
+const table = document.getElementById('MainTable')
 let aftertable = ''
 
 const table_th = ['NAME',
@@ -153,8 +37,8 @@ const table_th_class = ['NAME',
                     'inVOL',
                     'MAXEX',
                     'LV_V',
-                    'Notes_V',
-                    'Notes_toVI',
+                    'CHAIN_V',
+                    'CHAIN_toVI',
                     'BPM',
                     'Artist',
                     'Effector',
@@ -163,8 +47,8 @@ const table_th_class = ['NAME',
                     'Vertical',
                     'Time',
                     'LV_IV',
-                    'Notes_IV',
-                    'Notes_toV',
+                    'CHAIN_IV',
+                    'CHAIN_toV',
                     'LV_III'
                     ]
 
@@ -192,7 +76,7 @@ const table_no = [1,
                   19,
                   20,
                   21,
-                  22,
+                  22
                    ]
 
 const table_leng = table_th.length
@@ -205,44 +89,467 @@ function tables(){
   
   aftertable = '<tr>'
   for(let i=0;i<table_leng;i++){
-    aftertable += '<th' + ' class=\"' + table_th_class[table_no[i]] + '\">' + table_th[table_no[i]] + '</th>'
+    aftertable += '<th' /*+ ' class=\"' + table_th_class[table_no[i]] + '\">'*/ + '>' + table_th[table_no[i]] + '</th>'
   }
   aftertable += '</tr>'
 
   data.forEach(function (dt){
-    if(dt[25] < MinBpm || MaxBpm < dt[25]) return true;
+    if(dt[24] < MinBpm || MaxBpm < dt[24]) return true;
     aftertable += '<tr>'
     for(let i=0;i<table_leng;i++){
-      aftertable += '<td' + ' class=\"' + table_th_class[table_no[i]] + '\">' + dt[table_no[i]] + '</td>'
+      aftertable += '<td' /*+ ' class=\"' + table_th_class[table_no[i]] + '\">'*/ + '>' + dt[table_no[i]] + '</td>'
     }
   });
-  
+
   table.innerHTML = aftertable
   const endTime = performance.now()
   console.log(endTime - startTime)
 }
 
-//checkbox-----------------------------------------------------------------------------------------------------------------------
-/*
-let idCheck = document.getElementById('id_display')
+//buttonmain---------------------------------------------------------------------------------------------------------------------------
+const MainButton = document.getElementById('mainbutton')
 
-idCheck.addEventListener('change',id_display_change)
+MainButton.onclick = MainButtonClick;
 
+function MainButtonClick(){
+  SortButton_classresetter();
+  SortButton_id_Click();
+}
 
-function id_display_change(){
-  const idcheck_id = document.getElementsByClassName('ID')
-  if(idCheck.checked){
-    idcheck_id.style.display = 'none';
+  //--sortbutton_classreset-----------------------------------------------------------------------------------------------------------------
+function SortButton_classresetter(){
+  sortButton_id.className = 'asc'
+  sortButton_chain.className = 'desc'
+  sortButton_bpm.className = 'desc'
+  sortButton_time.className = 'desc'
+}
+
+  //--sortbuttonID----------------------------------------------------------------------------------------------------------------------------
+const sortButton_id = document.getElementById('sortID')
+
+sortButton_id.onclick = SortButton_id_Click
+
+function SortButton_id_Click(){
+  if(sortButton_id.className == 'asc'){
+    data.sort(function(a,b){return a[1]-b[1]})
+    SortButton_classresetter()
+    sortButton_id.className = 'desc'
+  }
+  else if(sortButton_id.className == 'desc'){
+    data.sort(function(a,b){return b[1]-a[1]})
+    SortButton_classresetter()
+    sortButton_id.className = 'asc'
+  }
+  tables();
+}
+
+  //--sortbuttonchain----------------------------------------------------------------------------------------------------------------------------
+const sortButton_chain = document.getElementById('sortCHAIN')
+
+sortButton_chain.onclick = SortButton_chain_Click
+
+function SortButton_chain_Click(){
+  if(sortButton_chain.className == 'asc'){
+    data.sort(function(a,b){return a[4]-b[4]})
+    SortButton_classresetter()
+    sortButton_chain.className = 'desc'
+  }
+  else if(sortButton_chain.className == 'desc'){
+    data.sort(function(a,b){return b[4]-a[4]})
+    SortButton_classresetter()
+    sortButton_chain.className = 'asc'
+  }
+  tables();
+}
+
+  //--sortbutton_bpm----------------------------------------------------------------------------------------------------------------------------
+const sortButton_bpm = document.getElementById('sortBPM')
+
+sortButton_bpm.onclick = SortButton_bpm_Click
+
+function SortButton_bpm_Click(){
+  if(sortButton_bpm.className == 'asc'){
+    data.sort(function(a,b){return a[24]-b[24]})
+    SortButton_classresetter()
+    sortButton_bpm.className = 'desc'
+  }
+  else if(sortButton_bpm.className == 'desc'){
+    data.sort(function(a,b){return b[24]-a[24]})
+    SortButton_classresetter()
+    sortButton_bpm.className = 'asc'
+  }
+  tables();
+}
+
+  //--sortbutton_time----------------------------------------------------------------------------------------------------------------------------
+const sortButton_time = document.getElementById('sortTIME')
+
+sortButton_time.onclick = SortButton_time_Click
+
+function SortButton_time_Click(){
+  if(sortButton_time.className == 'asc'){
+    data.sort(function(a,b){return a[25]-b[25]})
+    SortButton_classresetter()
+    sortButton_time.className = 'desc'
+  }
+  else if(sortButton_time.className == 'desc'){
+    data.sort(function(a,b){return b[25]-a[25]})
+    SortButton_classresetter()
+    sortButton_time.className = 'asc'
+  }
+  tables();
+}
+
+//limitbutton---------------------------------------------------------------------------------------------------------------------------
+let MinBpm = 0
+let MaxBpm = 10000
+
+function bpmChecker(){
+  let tempminbpm = document.getElementById('minbpm').value
+  let tempmaxbpm = document.getElementById('maxbpm').value
+  
+  if(tempminbpm == null || tempminbpm == ''){
+    MinBpm = 0
   }else{
-    idcheck_id.style.display = 'block';
+    MinBpm = tempminbpm
+  }
+  
+  if(tempmaxbpm == null || tempmaxbpm == ''){
+    MaxBpm = 10000
+  }else{
+    MaxBpm = tempmaxbpm
   }
 }
-*/
+
+
+
+//checkbox-----------------------------------------------------------------------------------------------------------------------
+  //--id---------------------------------------------------------------------------------------------------------------------------
+const checkbox_id = document.getElementById('id_display')
+
+checkbox_id.addEventListener('change',id_display_function)
+
+function id_display_function(){
+  const styleid = document.getElementById('ID_display_css')
+  if(checkbox_id.checked){
+    styleid.disabled = true;
+  }else{
+    styleid.disabled = false;
+  }
+}
+
+  //--name---------------------------------------------------------------------------------------------------------------------------
+const checkbox_name = document.getElementById('name_display')
+
+checkbox_name.addEventListener('change',name_display_function)
+
+function name_display_function(){
+  const stylename = document.getElementById('NAME_display_css')
+  if(checkbox_name.checked){
+    stylename.disabled = true;
+  }else{
+    stylename.disabled = false;
+  }
+}
+
+  //--ver---------------------------------------------------------------------------------------------------------------------------
+const checkbox_ver = document.getElementById('ver_display')
+
+checkbox_ver.addEventListener('change',ver_display_function)
+
+function ver_display_function(){
+  const stylever = document.getElementById('Ver_display_css')
+  if(checkbox_ver.checked){
+    stylever.disabled = true;
+  }else{
+    stylever.disabled = false;
+  }
+}
+
+  //--lv---------------------------------------------------------------------------------------------------------------------------
+const checkbox_lv = document.getElementById('lv_display')
+
+checkbox_lv.addEventListener('change',lv_display_function)
+
+function lv_display_function(){
+  const stylelv = document.getElementById('LV_display_css')
+  if(checkbox_lv.checked){
+    stylelv.disabled = true;
+  }else{
+    stylelv.disabled = false;
+  }
+}
+
+  //--chain---------------------------------------------------------------------------------------------------------------------------
+const checkbox_chain = document.getElementById('chain_display')
+
+checkbox_chain.addEventListener('change',chain_display_function)
+
+function chain_display_function(){
+  const stylechain = document.getElementById('CHAIN_display_css')
+  if(checkbox_chain.checked){
+    stylechain.disabled = true;
+  }else{
+    stylechain.disabled = false;
+  }
+}
+
+  //--inchip---------------------------------------------------------------------------------------------------------------------------
+const checkbox_inchip = document.getElementById('inchip_display')
+
+checkbox_inchip.addEventListener('change',inchip_display_function)
+
+function inchip_display_function(){
+  const styleinchip = document.getElementById('inCHIP_display_css')
+  if(checkbox_inchip.checked){
+    styleinchip.disabled = true;
+  }else{
+    styleinchip.disabled = false;
+  }
+}
+
+  //--inlong---------------------------------------------------------------------------------------------------------------------------
+const checkbox_inlong = document.getElementById('inlong_display')
+
+checkbox_inlong.addEventListener('change',inlong_display_function)
+
+function inlong_display_function(){
+  const styleinlong = document.getElementById('inLONG_display_css')
+  if(checkbox_inlong.checked){
+    styleinlong.disabled = true;
+  }else{
+    styleinlong.disabled = false;
+  }
+}
+
+  //--invol---------------------------------------------------------------------------------------------------------------------------
+const checkbox_invol = document.getElementById('invol_display')
+
+checkbox_invol.addEventListener('change',invol_display_function)
+
+function invol_display_function(){
+  const styleinvol = document.getElementById('inVOL_display_css')
+  if(checkbox_invol.checked){
+    styleinvol.disabled = true;
+  }else{
+    styleinvol.disabled = false;
+  }
+}
+
+  //--maxex---------------------------------------------------------------------------------------------------------------------------
+const checkbox_maxex = document.getElementById('maxex_display')
+
+checkbox_maxex.addEventListener('change',maxex_display_function)
+
+function maxex_display_function(){
+  const stylemaxex = document.getElementById('MAXEX_display_css')
+  if(checkbox_maxex.checked){
+    stylemaxex.disabled = true;
+  }else{
+    stylemaxex.disabled = false;
+  }
+}
+
+  //--lv_v---------------------------------------------------------------------------------------------------------------------------
+const checkbox_lv_v = document.getElementById('lv_v_display')
+
+checkbox_lv_v.addEventListener('change',lv_v_display_function)
+
+function lv_v_display_function(){
+  const stylelv_v = document.getElementById('LV_V_display_css')
+  if(checkbox_lv_v.checked){
+    stylelv_v.disabled = true;
+  }else{
+    stylelv_v.disabled = false;
+  }
+}
+
+  //--chain_v---------------------------------------------------------------------------------------------------------------------------
+const checkbox_chain_v = document.getElementById('chain_v_display')
+
+checkbox_chain_v.addEventListener('change',chain_v_display_function)
+
+function chain_v_display_function(){
+  const stylechain_v = document.getElementById('CHAIN_V_display_css')
+  if(checkbox_chain_v.checked){
+    stylechain_v.disabled = true;
+  }else{
+    stylechain_v.disabled = false;
+  }
+}
+
+  //--chain_tovi---------------------------------------------------------------------------------------------------------------------------
+const checkbox_chain_tovi = document.getElementById('chain_tovi_display')
+
+checkbox_chain_tovi.addEventListener('change',chain_tovi_display_function)
+
+function chain_tovi_display_function(){
+  const stylechain_tovi = document.getElementById('CHAIN_toVI_display_css')
+  if(checkbox_chain_tovi.checked){
+    stylechain_tovi.disabled = true;
+  }else{
+    stylechain_tovi.disabled = false;
+  }
+}
+
+  //--bpm---------------------------------------------------------------------------------------------------------------------------
+const checkbox_bpm = document.getElementById('bpm_display')
+
+checkbox_bpm.addEventListener('change',bpm_display_function)
+
+function bpm_display_function(){
+  const stylebpm = document.getElementById('BPM_display_css')
+  if(checkbox_bpm.checked){
+    stylebpm.disabled = true;
+  }else{
+    stylebpm.disabled = false;
+  }
+}
+
+  //--artist---------------------------------------------------------------------------------------------------------------------------
+const checkbox_artist = document.getElementById('artist_display')
+
+checkbox_artist.addEventListener('change',artist_display_function)
+
+function artist_display_function(){
+  const styleartist = document.getElementById('Artist_display_css')
+  if(checkbox_artist.checked){
+    styleartist.disabled = true;
+  }else{
+    styleartist.disabled = false;
+  }
+}
+
+  //--effector---------------------------------------------------------------------------------------------------------------------------
+const checkbox_effector = document.getElementById('effector_display')
+
+checkbox_effector.addEventListener('change',effector_display_function)
+
+function effector_display_function(){
+  const styleeffector = document.getElementById('Effector_display_css')
+  if(checkbox_effector.checked){
+    styleeffector.disabled = true;
+  }else{
+    styleeffector.disabled = false;
+  }
+}
+
+  //--vertical_l---------------------------------------------------------------------------------------------------------------------------
+const checkbox_vertical_l = document.getElementById('vertical_l_display')
+
+checkbox_vertical_l.addEventListener('change',vertical_l_display_function)
+
+function vertical_l_display_function(){
+  const stylevertical_l = document.getElementById('Vertical_L_display_css')
+  if(checkbox_vertical_l.checked){
+    stylevertical_l.disabled = true;
+  }else{
+    stylevertical_l.disabled = false;
+  }
+}
+
+  //--vertical_r---------------------------------------------------------------------------------------------------------------------------
+const checkbox_vertical_r = document.getElementById('vertical_r_display')
+
+checkbox_vertical_r.addEventListener('change',vertical_r_display_function)
+
+function vertical_r_display_function(){
+  const stylevertical_r = document.getElementById('Vertical_R_display_css')
+  if(checkbox_vertical_r.checked){
+    stylevertical_r.disabled = true;
+  }else{
+    stylevertical_r.disabled = false;
+  }
+}
+
+  //--vertical---------------------------------------------------------------------------------------------------------------------------
+const checkbox_vertical = document.getElementById('vertical_display')
+
+checkbox_vertical.addEventListener('change',vertical_display_function)
+
+function vertical_display_function(){
+  const stylevertical = document.getElementById('Vertical_display_css')
+  if(checkbox_vertical.checked){
+    stylevertical.disabled = true;
+  }else{
+    stylevertical.disabled = false;
+  }
+}
+
+  //--time---------------------------------------------------------------------------------------------------------------------------
+const checkbox_time = document.getElementById('time_display')
+
+checkbox_time.addEventListener('change',time_display_function)
+
+function time_display_function(){
+  const styletime = document.getElementById('Time_display_css')
+  if(checkbox_time.checked){
+    styletime.disabled = true;
+  }else{
+    styletime.disabled = false;
+  }
+}
+
+  //--lv_iv---------------------------------------------------------------------------------------------------------------------------
+const checkbox_lv_iv = document.getElementById('lv_iv_display')
+
+checkbox_lv_iv.addEventListener('change',lv_iv_display_function)
+
+function lv_iv_display_function(){
+  const stylelv_iv = document.getElementById('LV_IV_display_css')
+  if(checkbox_lv_iv.checked){
+    stylelv_iv.disabled = true;
+  }else{
+    stylelv_iv.disabled = false;
+  }
+}
+
+  //--chain_iv---------------------------------------------------------------------------------------------------------------------------
+const checkbox_chain_iv = document.getElementById('chain_iv_display')
+
+checkbox_chain_iv.addEventListener('change',chain_iv_display_function)
+
+function chain_iv_display_function(){
+  const stylechain_iv = document.getElementById('CHAIN_IV_display_css')
+  if(checkbox_chain_iv.checked){
+    stylechain_iv.disabled = true;
+  }else{
+    stylechain_iv.disabled = false;
+  }
+}
+
+  //--chain_tov---------------------------------------------------------------------------------------------------------------------------
+const checkbox_chain_tov = document.getElementById('chain_tov_display')
+
+checkbox_chain_tov.addEventListener('change',chain_tov_display_function)
+
+function chain_tov_display_function(){
+  const stylechain_tov = document.getElementById('CHAIN_toV_display_css')
+  if(checkbox_chain_tov.checked){
+    stylechain_tov.disabled = true;
+  }else{
+    stylechain_tov.disabled = false;
+  }
+}
+
+  //--lv_iii---------------------------------------------------------------------------------------------------------------------------
+const checkbox_lv_iii = document.getElementById('lv_iii_display')
+
+checkbox_lv_iii.addEventListener('change',lv_iii_display_function)
+
+function lv_iii_display_function(){
+  const stylelv_iii = document.getElementById('LV_III_display_css')
+  if(checkbox_lv_iii.checked){
+    stylelv_iii.disabled = true;
+  }else{
+    stylelv_iii.disabled = false;
+  }
+}
 
 //data---------------------------------------------------------------------------------------------------------------------------
 //--末尾にver,mainbpm,time実数値追加
 const data = [
-//  0                    1       2    3    4  5    6   7   8   9    10      11   12 13    14            15        16 17 18 19      20      21   22  23   24 25  26
+//  0                    1       2    3      4    5   6   7   8     9      10   11  12   13            14        15 16 17 18      19      20   21 22    23 24  25  26
   ["Ganymede kamome mix",170001,"Ⅰ","EXH17",1581,775,302,504,5487,"EXH17",1557,24,"200","kamome sano","PHQUASE",16,16,32,"01:58","EXH17",1557,0,"EXH15",1,200,118,17],
   ["Max Burning!!",170002,"Ⅰ","EXH17",2054,625,300,1129,5983,"EXH17",1947,107,"190","BlackY","PHQUASE",74,64,138,"02:00","EXH17",1944,3,"EXH15",1,190,120,17],
   ["The world of sound",170003,"Ⅰ","EXH17",1624,904,377,343,5960,"EXH17",1547,77,"210","Music by Ryuwitty,Vocal by Kuroa*","TEK-A-RHYTHM",11,14,25,"02:00","EXH17",1537,10,"EXH15",1,210,120,17],
