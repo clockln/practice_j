@@ -1,3 +1,7 @@
 .buttons{
   display : inline-block;
 }
+
+#Maintable{
+  width : auto;
+}
