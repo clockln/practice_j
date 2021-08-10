@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>sdvx</title>
   <link rel="stylesheet" href="stylesheet.css">
 
   <link rel="stylesheet" href="display_css/IDdisplay.css" id=ID_display_css>
@@ -33,7 +33,7 @@
 
 </head>
 <body>
-
+<div id="temptation">
   <p>bpm <input type="text" id="minbpm" size="8" maxlength="5"> ～ 
   <input type="text" id="maxbpm" size="8" maxlength="5"></p>
 
@@ -45,7 +45,7 @@
     <button id="sortTIME"  class="desc">TIMEsort</button>
   </div>
   
-  <label><input type="checkbox" id="id_display">ID</label>
+  <label id="fax"><input type="checkbox" id="id_display">ID</label>
   <label><input type="checkbox" id="name_display" checked="checked">NAME</label>
   <label><input type="checkbox" id="ver_display" checked="checked">Version</label>
   <label><input type="checkbox" id="lv_display" checked="checked">LV</label>
@@ -85,7 +85,7 @@
     <th>CHAIN_V</th>
     <th>CHAIN差</th>
     <th>BPM</th>
-    <th>Artist</th>
+    <th id="Artist">Artist</th>
     <th>Effector</th>
     <th>Vertical_L</th>
     <th>Vertical_R</th>
@@ -99,6 +99,7 @@
   </table>
   </div>
     
+</div>
   <script type="text/javascript" src="changer.js"></script>
 </body>
 </html>
