@@ -6,25 +6,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="stylesheet.css">
+
+  <link rel="stylesheet" href="display_css/IDdisplay.css" id=ID_display_css>
+  <link rel="stylesheet" href="display_css/NAMEdisplay.css" disabled='false' id=NAME_display_css>
+  <link rel="stylesheet" href="display_css/Verdisplay.css" disabled='false' id=Ver_display_css>
+  <link rel="stylesheet" href="display_css/LVdisplay.css" disabled='false' id=LV_display_css>
+  <link rel="stylesheet" href="display_css/CHAINdisplay.css" disabled='false' id=CHAIN_display_css>
+  <link rel="stylesheet" href="display_css/inCHIPdisplay.css" id=inCHIP_display_css>
+  <link rel="stylesheet" href="display_css/inLONGdisplay.css" id=inLONG_display_css>
+  <link rel="stylesheet" href="display_css/inVOLdisplay.css" id=inVOL_display_css>
+  <link rel="stylesheet" href="display_css/MAXEXdisplay.css" id=MAXEX_display_css>
+  <link rel="stylesheet" href="display_css/LV_Vdisplay.css" id=LV_V_display_css>
+  <link rel="stylesheet" href="display_css/CHAIN_Vdisplay.css" id=CHAIN_V_display_css>
+  <link rel="stylesheet" href="display_css/CHAIN_toVIdisplay.css" id=CHAIN_toVI_display_css>
+  <link rel="stylesheet" href="display_css/BPMdisplay.css" disabled='false' id=BPM_display_css>
+  <link rel="stylesheet" href="display_css/Artistdisplay.css" disabled='false' id=Artist_display_css>
+  <link rel="stylesheet" href="display_css/Effectordisplay.css" disabled='false' id=Effector_display_css>
+  <link rel="stylesheet" href="display_css/Vertical_Ldisplay.css" id=Vertical_L_display_css>
+  <link rel="stylesheet" href="display_css/Vertical_Rdisplay.css" id=Vertical_R_display_css>
+  <link rel="stylesheet" href="display_css/Verticaldisplay.css" id=Vertical_display_css>
+  <link rel="stylesheet" href="display_css/Timedisplay.css" disabled='false' id=Time_display_css>
+  <link rel="stylesheet" href="display_css/LV_IVdisplay.css" id=LV_IV_display_css>
+  <link rel="stylesheet" href="display_css/CHAIN_IVdisplay.css" id=CHAIN_IV_display_css>
+  <link rel="stylesheet" href="display_css/CHAIN_toVdisplay.css" id=CHAIN_toV_display_css>
+  <link rel="stylesheet" href="display_css/LV_IIIdisplay.css" id=LV_III_display_css>
+
 </head>
 <body>
 
-  <p>bpm<input type="text" id="minbpm" size="8" maxlength="5"> ～ <input type="text" id="maxbpm" size="8" maxlength="5"></p>
+  <p>bpm <input type="text" id="minbpm" size="8" maxlength="5"> ～ 
+  <input type="text" id="maxbpm" size="8" maxlength="5"></p>
+
   <div class="buttons">
-    <button id="mainbutton">BUTTON</button>
+    <button id="mainbutton">Default</button>
     <button id="sortID" class="asc">IDsort</button>
     <button id="sortCHAIN" class="desc">CHAINsort</button>
     <button id="sortBPM"   class="desc">BPMsort</button>
     <button id="sortTIME"  class="desc">TIMEsort</button>
   </div>
   
-  <label><input type="checkbox" id="id_display" checked="checked">1</label>
-  <label><input type="checkbox" id="name_display" checked="checked">2</label>
-  <label><input type="checkbox" id="ver_display" checked="checked">3</label>
-  <label><input type="checkbox" id="dif_display" checked="checked">4</label>
+  <label><input type="checkbox" id="id_display">ID</label>
+  <label><input type="checkbox" id="name_display" checked="checked">NAME</label>
+  <label><input type="checkbox" id="ver_display" checked="checked">Version</label>
+  <label><input type="checkbox" id="lv_display" checked="checked">LV</label>
+  <label><input type="checkbox" id="chain_display" checked="checked">CHAIN</label>
+  <label><input type="checkbox" id="inchip_display">inCHIP</label>
+  <label><input type="checkbox" id="inlong_display">inLONG</label>
+  <label><input type="checkbox" id="invol_display">inVOL</label>
+  <label><input type="checkbox" id="maxex_display">MAXEX</label>
+  <label><input type="checkbox" id="lv_v_display">LV_V</label>
+  <label><input type="checkbox" id="chain_v_display">CHAIN_V</label>
+  <label><input type="checkbox" id="chain_tovi_display">CHAIN_toVI</label>
+  <label><input type="checkbox" id="bpm_display" checked="checked">BPM</label>
+  <label><input type="checkbox" id="artist_display" checked="checked">Artist</label>
+  <label><input type="checkbox" id="effector_display" checked="checked">Effector</label>
+  <label><input type="checkbox" id="vertical_l_display">Vertical_L</label>
+  <label><input type="checkbox" id="vertical_r_display">Vertical_R</label>
+  <label><input type="checkbox" id="vertical_display">Vertical</label>
+  <label><input type="checkbox" id="time_display" checked="checked">Time</label>
+  <label><input type="checkbox" id="lv_iv_display">LV_IV</label>
+  <label><input type="checkbox" id="chain_iv_display">CHAIN_IV</label>
+  <label><input type="checkbox" id="chain_tov_display">CHAIN_toV</label>
+  <label><input type="checkbox" id="lv_iii_display">LV_III</label>
   
   <div>
-  <table border="1" id="table1">
+  <table border="1" id="MainTable">
     <tr>
     <th>ID</th>
     <th>NAME</th>
