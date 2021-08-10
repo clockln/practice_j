@@ -34,8 +34,36 @@
 </head>
 <body>
 <div id="temptation">
-  <p>bpm <input type="text" id="minbpm" size="8" maxlength="5"> ～ 
-  <input type="text" id="maxbpm" size="8" maxlength="5"></p>
+  <div class="checkbox_list">
+  <label><input type="checkbox" id="id_display">ID</label>
+  <label><input type="checkbox" id="name_display" checked="checked">NAME</label>
+  <label><input type="checkbox" id="ver_display" checked="checked">Version</label>
+  <label><input type="checkbox" id="lv_display" checked="checked">LV</label>
+  <label><input type="checkbox" id="chain_display" checked="checked">CHAIN<br></label>
+  <label><input type="checkbox" id="inchip_display">(内訳)CHIP</label>
+  <label><input type="checkbox" id="inlong_display">(内訳)LONG</label>
+  <label><input type="checkbox" id="invol_display">(内訳)VOL</label>
+  <label><input type="checkbox" id="maxex_display">MAXEX<br></label>
+  <label><input type="checkbox" id="lv_v_display">LV_Ver.Ⅴ</label>
+  <label><input type="checkbox" id="chain_v_display">CHAIN_Ver.Ⅴ</label>
+  <label><input type="checkbox" id="chain_tovi_display">CHAIN増減_Ⅴ→Ⅵ<br></label>
+  <label><input type="checkbox" id="bpm_display" checked="checked">BPM</label>
+  <label><input type="checkbox" id="artist_display" checked="checked">Artist</label>
+  <label><input type="checkbox" id="effector_display" checked="checked">Effector<br></label>
+  <label><input type="checkbox" id="vertical_l_display">直角_L</label>
+  <label><input type="checkbox" id="vertical_r_display">直角_R</label>
+  <label><input type="checkbox" id="vertical_display">直角</label>
+  <label><input type="checkbox" id="time_display" checked="checked">Time<br></label>
+  <label><input type="checkbox" id="lv_iv_display">LV_Ver.Ⅳ</label>
+  <label><input type="checkbox" id="chain_iv_display">CHAIN_Ver.Ⅳ</label>
+  <label><input type="checkbox" id="chain_tov_display">CHAIN増減_Ⅳ→Ⅴ</label>
+  <label><input type="checkbox" id="lv_iii_display">LV_Ver.Ⅲ</label>
+  </div>
+
+  <div class="bpm_limit">
+    bpm <input type="text" id="minbpm" size="8" maxlength="5"> ～ 
+  <input type="text" id="maxbpm" size="8" maxlength="5">
+  </div>
 
   <div class="buttons">
     <button id="mainbutton">Default</button>
@@ -44,57 +72,33 @@
     <button id="sortBPM"   class="desc">BPMsort</button>
     <button id="sortTIME"  class="desc">TIMEsort</button>
   </div>
-  
-  <label id="fax"><input type="checkbox" id="id_display">ID</label>
-  <label><input type="checkbox" id="name_display" checked="checked">NAME</label>
-  <label><input type="checkbox" id="ver_display" checked="checked">Version</label>
-  <label><input type="checkbox" id="lv_display" checked="checked">LV</label>
-  <label><input type="checkbox" id="chain_display" checked="checked">CHAIN</label>
-  <label><input type="checkbox" id="inchip_display">inCHIP</label>
-  <label><input type="checkbox" id="inlong_display">inLONG</label>
-  <label><input type="checkbox" id="invol_display">inVOL</label>
-  <label><input type="checkbox" id="maxex_display">MAXEX</label>
-  <label><input type="checkbox" id="lv_v_display">LV_V</label>
-  <label><input type="checkbox" id="chain_v_display">CHAIN_V</label>
-  <label><input type="checkbox" id="chain_tovi_display">CHAIN_toVI</label>
-  <label><input type="checkbox" id="bpm_display" checked="checked">BPM</label>
-  <label><input type="checkbox" id="artist_display" checked="checked">Artist</label>
-  <label><input type="checkbox" id="effector_display" checked="checked">Effector</label>
-  <label><input type="checkbox" id="vertical_l_display">Vertical_L</label>
-  <label><input type="checkbox" id="vertical_r_display">Vertical_R</label>
-  <label><input type="checkbox" id="vertical_display">Vertical</label>
-  <label><input type="checkbox" id="time_display" checked="checked">Time</label>
-  <label><input type="checkbox" id="lv_iv_display">LV_IV</label>
-  <label><input type="checkbox" id="chain_iv_display">CHAIN_IV</label>
-  <label><input type="checkbox" id="chain_tov_display">CHAIN_toV</label>
-  <label><input type="checkbox" id="lv_iii_display">LV_III</label>
-  
+
   <div>
   <table border="1" id="MainTable">
     <tr>
-    <th>ID</th>
-    <th>NAME</th>
-    <th>Ver</th>
-    <th>LV</th>
-    <th>CHAIN</th>
-    <th>inCHIP</th>
-    <th>inLONG</th>
-    <th>inVOL</th>
-    <th>MAXEX</th>
-    <th>LV_V</th>
-    <th>CHAIN_V</th>
-    <th>CHAIN差</th>
-    <th>BPM</th>
-    <th id="Artist">Artist</th>
-    <th>Effector</th>
-    <th>Vertical_L</th>
-    <th>Vertical_R</th>
-    <th>Vertical</th>
-    <th>Time</th>
-    <th>LV_IV</th>
-    <th>CHAIN_IV</th>
-    <th>CHAIN差_IV→V</th>
-    <th>LV_III</th>
+    <th id="table_ID">ID</th>
+    <th id="table_NAME">NAME</th>
+    <th id="table_Ver">Ver</th>
+    <th id="table_LV">LV</th>
+    <th id="table_CHAIN">CHAIN</th>
+    <th id="table_inCHIP">inCHIP</th>
+    <th id="table_inLONG">inLONG</th>
+    <th id="table_"inVOL>inVOL</th>
+    <th id="table_MAXEX">MAXEX</th>
+    <th id="table_LV_V">LV_V</th>
+    <th id="table_CHAIN_V">CHAIN_V</th>
+    <th id="table_CHAIN_toVI">CHAIN差</th>
+    <th id="table_BPM">BPM</th>
+    <th id="table_Artist">Artist</th>
+    <th id="table_Effector">Effector</th>
+    <th id="table_Vertical_L">Vertical_L</th>
+    <th id="table_Vertical_R">Vertical_R</th>
+    <th id="table_Vertical">Vertical</th>
+    <th id="table_Time">Time</th>
+    <th id="table_LV_IV">LV_IV</th>
+    <th id="table_CHAIN_IV">CHAIN_IV</th>
+    <th id="table_CHAIN_toV">CHAIN差_IV→V</th>
+    <th id="table_LV_III">LV_III</th>
     </tr>
   </table>
   </div>
