@@ -1,0 +1,3 @@
+#MainTable tr td:nth-child(15), #MainTable th:nth-child(15) {
+  display: none;
+}
