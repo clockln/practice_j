@@ -12,6 +12,7 @@ public class Prob{
     public static void Main(){
         while(true){
             var s = ReadLine().Split('\t');
+            
             Write("  [");
             
             Write($"\"{s[0]}\"");
@@ -26,13 +27,12 @@ public class Prob{
             if(s[1].Length == 3){
                 Write("0");
             }
+            s[1] = s[1].Replace("\"","\\\"");
             Write($"{s[1]}");
             Write(",");
             Write($"\"{s[2]}\"");
             Write(",");
-            Write($"\"{s[3][0]}{s[3][1]}{s[3][2]}\"");
-            Write(",");
-            Write($"{s[3][3]}{s[3][4]}");
+            Write($"\"{s[3]}\"");
             Write(",");
             Write($"{s[4]}");
             Write(",");
@@ -42,39 +42,53 @@ public class Prob{
             Write(",");
             Write($"{s[7]}");
             Write(",");
-            Write($"{s[8]}");
+            Write($"\"{s[8]}\"");
             Write(",");
             Write($"\"{s[9]}\"");
             Write(",");
-            Write($"{s[10]}");
+            Write($"\"{s[10]}\"");
             Write(",");
             Write($"{s[11]}");
             Write(",");
             Write($"\"{s[12]}\"");
             Write(",");
-            Write($"\"{s[13]}\"");
+            Write($"{s[13]}");
             Write(",");
-            Write($"\"{s[14]}\"");
+            Write($"{s[14]}");
             Write(",");
-            Write($"{s[15]}");
+            Write($"\"{s[15]}\"");
             Write(",");
-            Write($"{s[16]}");
+            s[16] = s[16].Replace("\"","\\\"");
+            Write($"\"{s[16]}\"");
             Write(",");
-            Write($"{s[17]}");
+            s[17] = s[17].Replace("\"","\\\"");
+            Write($"\"{s[17]}\"");
             Write(",");
-            Write($"\"{s[18]}\"");
+            Write($"{s[18]}");
+            Write(",");
+            Write($"{s[19]}");
+            Write(",");
+            Write($"{s[20]}");
+            Write(",");
+            Write($"\"{s[21]}\"");
             Write(",");
             //Write($"{s[19]}");
             //Write(",");
             //Write($"{s[20]}");
             //Write(",");
-            Write($"\"{s[21]}\"");
-            Write(",");
-            Write($"{s[22]}");
-            Write(",");
-            Write($"{s[23]}");
-            Write(",");
             Write($"\"{s[24]}\"");
+            Write(",");
+            if(s[25] == "-" || s[25] == ""){
+                s[25] = "\"-\"";
+            }
+            Write($"{s[25]}");
+            Write(",");
+            if(s[26] == "-" || s[26] == ""){
+                s[26] = "\"-\"";
+            }
+            Write($"{s[26]}");
+            Write(",");
+            Write($"\"{s[27]}\"");
             Write(",");
             //Write($"{s[25]}");
             //Write(",");
@@ -82,23 +96,23 @@ public class Prob{
             if(s[2] == "Ⅱ") Write("2");
             if(s[2] == "Ⅲ") Write("3");
             if(s[2] == "Ⅳ") Write("4");
-            if(s[2] == "Ⅴ") Write("5");
+            if(s[2] == "V") Write("5");
             if(s[2] == "Ⅵ") Write("6");
             if(s[2] == "Ⅶ") Write("7");
             if(s[2] == "Ⅷ") Write("8");
             if(s[2] == "Ⅸ") Write("9");
             if(s[2] == "Ⅹ") Write("10");
             Write(",");
-            if(s[12].IndexOf("-") >= 0){
-                Write("!!!!!!!!!!!!!!!!!!!");
+            if(s[15].IndexOf("-") >= 0){
+                Write("\"!!!!!!!!!!!!!!!!!!!\"");
             }else{
-                Write(s[12]);
+                Write(s[15]);
             }
             Write(",");
-            if(s[18] == ""){
+            if(s[21] == ""){
                 Write("\"0\"");
             }else{
-                var tempt = s[18].Split(':');
+                var tempt = s[21].Split(':');
                 tempt[0] = tempt[0].Replace("0","");
                 var time = int.Parse(tempt[0])*60 + int.Parse(tempt[1]);
                 Write(time);
